@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django level Two</title>
+</head>
+<style>
+    table  {
+        width: 60%;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    table, th, td{
+        border :solid 1px; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size:larger ;
+        font-weight: 500; 
+    }
+    #date{
+        text-align: right;
+    }
+    th{
+        background-color: lightgrey;
+    }
+</style>
+<body>
+
+    <h1 style="text-align: center; background-color: lightsalmon;">____ HI ! WELCOME TO DJANGO LEVEL TWO ____</h1>
+
+    {% if access_records %}
+
+    <table>
+        <thead>
+            <th>Site name </th>
+            <th>Date access</th>
+        </thead>
+
+        {% for acc in access_records %}
+        <tr>
+            <td>{{acc.name}}</td>
+            <td id="date">{{acc.date}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%else%}
+    <p> NO ACCESS RECORD FOUND!</p>
+    {%endif%}
+</body>
+
+</html>
